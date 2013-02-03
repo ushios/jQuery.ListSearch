@@ -7,52 +7,83 @@
 		 */
 		start: function(input, target, tagName){
 			var _this = this;
+			
 			input.on('keyup', function(e){
+				text = _this.getInputText(input);
+				
 				switch(tagName){
 				case 'TABLE':
-					_this.listSearchTable();
+					_this.listSearchTable(target, text);
 					break;
 				case 'UL':
-					_this.listSearchListUl();
+					_this.listSearchListUl(target, text);
 					break;
 				case 'OL':
-					_this.listSearchListOl();
+					_this.listSearchListOl(target, text);
 					break;
 				case 'DL':
-					_this.listSearchListDl();
+					_this.listSearchListDl(target, text);
 					break;
 				default:
-					throw new Exception('Illegal tag name ' + targetObject.targetTagName);
+					throw new Error('Illegal tag name ' + targetObject.targetTagName);
 				}
 			});
+		},
+		
+		getInputText: function(input){
+			return input.val();
 		},
 		
 		/**
 		 * tag table
 		 */
-		listSearchTable: function(){
-			
+		listSearchTable: function(target, text){
+			this.listSearchCommon('tr', target, text);
 		},
 		
 		/**
 		 * tag ul
 		 */
-		listSearchListUl: function(){
-			
+		listSearchListUl: function(target, text){
+			this.listSearchCommon('li', target, text);
 		},
 		
 		/**
 		 * tag ol
 		 */
-		listSearchListOl: function(){
-			return this.listSearchListUl();
+		listSearchListOl: function(target, text){
+			return this.listSearchListUl(target, text);
 		},
 		
 		/**
 		 * tag dl
 		 */
-		listSearchListDl: function(){
-			
+		listSearchListDl: function(target, text){
+			this.listSearchCommon('dd dt', target, text);
+		},
+		
+		/**
+		 * commondSearchList
+		 */
+		listSearchCommon: function(tagName ,target, text){
+			var _this = this;
+			target.find(tagName).each(function(){
+				var displayFlag = $(this).text().match(text);
+				$(this).css('display', _this.getDisplayProperty(tagName, displayFlag));
+			})
+		},
+		
+		getDisplayProperty: function(tagName, flag){
+			switch(tagName){
+			case 'tr':
+				return flag?'table-row':'none';
+			case 'li':
+				return flag?'list-item':'none';
+			case 'dd dt':
+				return flag?'list-item':'none';
+			default:
+				throw new Error('Illegal tag name ' + targetObject.targetTagName);
+			}
 		}
 	}
 	
