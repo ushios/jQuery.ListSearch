@@ -16,7 +16,7 @@
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ],
-  "description": "Incremental search for table, ul and ol tags. Only perfect match now.",
+  "description": "Incremental search for table, ul and ol tags. Perfect match only.",
   "keywords": ["incremental", "search", "list", "table", "ul", "li", "ol"],
   "homepage": "",
   "demo": "",
