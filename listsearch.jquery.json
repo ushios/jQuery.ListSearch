@@ -1,0 +1,26 @@
+{
+  "name": "listsearch",
+  "version": "0.1.0",
+  "title": "jQuery List Search",
+  "author": {
+    "name": "Ushio Shugo",
+    "url": "http://ushio.me"
+  },
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "http://www.gnu.org/licenses/gpl.html"
+    },
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "description": "Incremental search for table, ul and ol tags. Only perfect match now.",
+  "keywords": ["incremental", "search", "list", "table", "ul", "li", "ol"],
+  "homepage": "",
+  "demo": "",
+  "dependencies": {
+    "jquery": ">=1.9.0"
+  }
+}
