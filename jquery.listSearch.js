@@ -5,8 +5,9 @@
 		/**
 		 * start list search
 		 */
-		start: function(input, target, tagName){
+		start: function(input, target){
 			var _this = this;
+			var tagName = target.get(0).tagName;
 			
 			input.on('keyup', function(e){
 				text = _this.getInputText(input);
@@ -98,27 +99,23 @@
 		for (var configCnt = 0; configCnt < configLength; configCnt ++){
 			// chack target tag type
 			var target = $(config[configCnt]['target']);
-			var targetTagName = target.get(0).tagName;
 			
 			// get input jquery object;
 			var input = $(config[configCnt]['input']);
 			
 			// Event start
 			listSearch = new ListSearch();
-			listSearch.start(input, target, targetTagName);
+			listSearch.start(input, target);
 			
 			// create new Object.
 			var targets = {
 				'input': input,
 				'target': target,
-				'targetTagName': targetTagName,
 				'listSearchObject': listSearch
 			}
 			
 			config[configCnt] = targets;
 		}
-		
-		console.log(config);
 		
 		return $(this);
 	};
