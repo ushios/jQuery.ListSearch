@@ -12,13 +12,9 @@
 <body>
 <script>
 $(function(){
-	objects = [
-		{'input':'#tableText', 'target':'#searchTable' },
-		{'input':'#listText', 'target':'#searchList'},
-		{'input':'#numberListText',  'target':'#searchNumberList'}
-	]
-	
-	$().listSearch(objects);
+	$('#searchTable').listSearch('#tableText');
+	$('#searchList').listSearch('#listText');
+	$('#searchNumberList').listSearch('#numberListText');
 });
 </script>
 <div>

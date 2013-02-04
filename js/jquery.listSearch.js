@@ -91,33 +91,17 @@
 	/**
 	 * Main stream
 	 */
-	$.fn.listSearch = function(config, options){
-		var options = $.extend($.fn.listSearch.defaults, options);
+	$.fn.listSearch = function(input, options){
+		var options = $.extend($.fn.listSearch.defaults, options);			
 		
-		// config 
-		var configLength = config.length;
-		for (var configCnt = 0; configCnt < configLength; configCnt ++){
-			// chack target tag type
-			var target = $(config[configCnt]['target']);
-			
-			// get input jquery object;
-			var input = $(config[configCnt]['input']);
-			
-			// Event start
-			listSearch = new ListSearch();
-			listSearch.start(input, target);
-			
-			// create new Object.
-			var targets = {
-				'input': input,
-				'target': target,
-				'listSearchObject': listSearch
-			}
-			
-			config[configCnt] = targets;
-		}
+		var target = $(this);
+		input = $(input);
 		
-		return $(this);
+		// Event start
+		listSearch = new ListSearch();
+		listSearch.start(input, target);
+		
+		return target;
 	};
 	
 	/**
