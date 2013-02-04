@@ -10,11 +10,7 @@ javascript
 
     <script>
     $(function(){
-     objects = [
-    		{'input':'#tableText', 'target':'#searchTable' }
-    	]
-    	
-    	$().listSearch(objects);
+        $('#searchTable').listSearch('#tableText');
     });
     </script>
 
