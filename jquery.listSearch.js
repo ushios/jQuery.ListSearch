@@ -2,7 +2,11 @@
 	var ListSearch = function() {};
 	ListSearch.prototype = {
 		/**
-		 * start list search
+		 * run
+		 * start incremental search.
+		 * @param {} input
+		 * @param {} target
+		 * @returns {} 
 		 */
 		run: function(input, target){
 			var _this = this;
@@ -67,12 +71,32 @@
 		 */
 		listSearchCommon: function(tagName ,target, text){
 			var _this = this;
+			var searchWords = this.searchWordToWords(text);
+			var wordLength = searchWords.length;
+			
 			target.find(tagName).each(function(){
-				var displayFlag = $(this).text().match(text);
-				$(this).css('display', _this.getDisplayProperty(tagName, displayFlag));
+				var body = _this.getBody(this);
+				var displayFlag = true;
+				
+				var wordCount = 0;
+				for(wordCount = 0; wordCount < wordLength; wordCount++){
+					var word = searchWords[wordCount];
+					if ( !body.match(word) ) {
+						displayFlag = false;
+						break;
+					}
+				}
+				
+				jQuery(this).css('display', _this.getDisplayProperty(tagName, displayFlag));
 			})
 		},
 		
+		/**
+		 * getDisplayProperty
+		 * @param {} tagName
+		 * @param {} flag
+		 * @returns {} 
+		 */
 		getDisplayProperty: function(tagName, flag){
 			switch(tagName){
 			case 'tr':
@@ -84,6 +108,38 @@
 			default:
 				throw new Error('Illegal tag name ' + targetObject.targetTagName);
 			}
+		},
+		
+		/**
+		 * getBody
+		 * @returns {}
+		 */
+		getBody: function(target){
+			var body = jQuery(target).text();
+			return jQuery.trim(body);
+		},
+		
+		/**
+		 * searchWordToWords
+		 * a search text split to search words.
+		 * @param {} body
+		 * @param {} searchWord
+		 * @returns {} 
+		 */
+		searchWordToWords: function(text){
+			text = jQuery.trim(text);
+			var words = text.split(/[ 　\-\/]/);
+			
+			// delete empty element
+			var wordsLength = words.length;
+			var wordsCount = 0;
+			for (wordsCount = 0; wordsCount < wordsLength; wordsCount++){
+				var word = words[wordsCount];
+				if (word == ""){
+					delete words[wordsCount];
+				}
+			}
+			return words;
 		}
 	}
 	
@@ -97,7 +153,7 @@
 		var target = jQuery(this);
 		switch (jQuery.type(input)){
 			case 'string':
-				input = $(input);
+				input = jQuery(input);
 				break;
 			case 'object':
 				input = input;
