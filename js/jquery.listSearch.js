@@ -103,7 +103,7 @@
 				input = input;
 				break;
 			default:
-				throw 'input object is invalid.';
+				throw 'Argiment value "' + input + '" is invalid.';
 		}
 		
 		// Event start
