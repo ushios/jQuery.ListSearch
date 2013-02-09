@@ -1,6 +1,6 @@
 {
   "name": "listsearch",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "jQuery List Search",
   "author": {
     "name": "Ushio Shugo",
@@ -16,10 +16,14 @@
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ],
-  "description": "Incremental search for table, ul and ol tags. Perfect match only.",
+  "demos": [
+  "dropbox": "https://dl-web.dropbox.com/get/Public/jQueryPlugins/jQuery.ListSearch/sample.html?w=AADjrV5tuzthgdylHvVZlDLG-DQaHqdSHfjYGOMhkl69tQ"
+  ],
+  "bugs": "https://github.com/ushios/jQuery.ListSearch/issues",
+  "docs": "https://github.com/ushios/jQuery.ListSearch/blob/master/README.md",
+  "homepage": "https://github.com/ushios/jQuery.ListSearch",
+  "description": "Incremental search for table, ul and ol tags.",
   "keywords": ["incremental", "search", "list", "table", "ul", "li", "ol"],
-  "homepage": "",
-  "demo": "",
   "dependencies": {
     "jquery": ">=1.9.0"
   }
