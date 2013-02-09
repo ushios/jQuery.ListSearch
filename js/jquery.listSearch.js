@@ -1,6 +1,5 @@
-(function($){
+(function(jQuery){
 	var ListSearch = function() {};
-	
 	ListSearch.prototype = {
 		/**
 		 * start list search
@@ -91,11 +90,21 @@
 	/**
 	 * Main stream
 	 */
-	$.fn.listSearch = function(input, options){
-		var options = $.extend($.fn.listSearch.defaults, options);			
+	jQuery.fn.listSearch = function(input, options){
+		var options = jQuery.extend(jQuery.fn.listSearch.defaults, options);
 		
-		var target = $(this);
-		input = $(input);
+		// set using objects.
+		var target = jQuery(this);
+		switch (jQuery.type(input)){
+			case 'string':
+				input = $(input);
+				break;
+			case 'object':
+				input = input;
+				break;
+			default:
+				throw 'input object is invalid.';
+		}
 		
 		// Event start
 		listSearch = new ListSearch();
@@ -107,7 +116,7 @@
 	/**
 	 * default settings.
 	 */
-	$.fn.listSearch.defaults = {
+	jQuery.fn.listSearch.defaults = {
 		
 	};
 })(jQuery);
