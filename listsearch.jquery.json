@@ -17,7 +17,7 @@
     }
   ],
   "demos": [
-  "dropbox": "https://dl-web.dropbox.com/get/Public/jQueryPlugins/jQuery.ListSearch/sample.html?w=AADjrV5tuzthgdylHvVZlDLG-DQaHqdSHfjYGOMhkl69tQ"
+    "dropbox": "https://dl-web.dropbox.com/get/Public/jQueryPlugins/jQuery.ListSearch/sample.html?w=AADjrV5tuzthgdylHvVZlDLG-DQaHqdSHfjYGOMhkl69tQ"
   ],
   "bugs": "https://github.com/ushios/jQuery.ListSearch/issues",
   "docs": "https://github.com/ushios/jQuery.ListSearch/blob/master/README.md",
