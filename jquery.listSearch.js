@@ -130,18 +130,20 @@
 		 */
 		searchWordToWords: function(text){
 			text = jQuery.trim(text);
-			var words = text.split(/[ 　\-\/]/);
+			var pattern = new RegExp(/[ 　\-\/]/);
+			var words = text.split(pattern);
 			
 			// delete empty element
+			var newWords = new Array();
 			var wordsLength = words.length;
 			var wordsCount = 0;
 			for (wordsCount = 0; wordsCount < wordsLength; wordsCount++){
 				var word = words[wordsCount];
-				if (word == ""){
-					delete words[wordsCount];
+				if (word != ""){
+					newWords.push(words[wordsCount]);
 				}
 			}
-			return words;
+			return newWords;
 		}
 	}
 	
