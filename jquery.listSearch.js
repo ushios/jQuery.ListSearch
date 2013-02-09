@@ -81,7 +81,9 @@
 				var wordCount = 0;
 				for(wordCount = 0; wordCount < wordLength; wordCount++){
 					var word = searchWords[wordCount];
-					if ( !body.match(word) ) {
+					
+					var pattern = new RegExp(word, 'i');
+					if ( !body.match(pattern) ) {
 						displayFlag = false;
 						break;
 					}
