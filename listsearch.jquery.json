@@ -1,6 +1,6 @@
 {
   "name": "listsearch",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "title": "jQuery List Search",
   "author": {
     "name": "Ushio Shugo",
@@ -22,6 +22,6 @@
   "description": "Incremental search for table, ul and ol tags.",
   "keywords": ["incremental", "search", "list", "table", "ul", "li", "ol"],
   "dependencies": {
-    "jquery": ">=1.9.0"
+    "jquery": ">=1.7.0"
   }
 }

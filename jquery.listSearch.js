@@ -75,7 +75,10 @@
 			var wordLength = searchWords.length;
 			
 			target.find(tagName).each(function(){
-				var body = _this.getBody(this);
+				var thisJQuery = jQuery(this);
+				if (thisJQuery.data('ignore-list-search') === 'ignore') return true;
+				
+				var body = _this.getBody(thisJQuery);
 				var displayFlag = true;
 				
 				var wordCount = 0;
@@ -90,6 +93,7 @@
 				}
 				
 				jQuery(this).css('display', _this.getDisplayProperty(tagName, displayFlag));
+				return true;
 			})
 		},
 		
@@ -117,7 +121,7 @@
 		 * @returns {}
 		 */
 		getBody: function(target){
-			var body = jQuery(target).text();
+			var body = target.text();
 			return jQuery.trim(body);
 		},
 		

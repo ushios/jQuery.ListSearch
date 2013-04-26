@@ -18,24 +18,24 @@ html
 
     <div>
       <h2>Table test.</h2>
-    	<label>search:<input id="tableText" type="text" /></label>
-    	<table id="searchTable">
-    		<tr>
-    			<th>name</th><th>value</th>
-    		</tr>
-    		<tr>
-    			<td>Sato</td><td>Taro</td>
-    		</tr>
-    		<tr>
-    			<td>Sato</td><td>Hanako</td>
-    		</tr>
-    		<tr>
-    			<td>Suzuki</td><td>Jiro</td>
-    		</tr>
-    		<tr>
-    			<td>田中</td><td>半兵衛</td>
-    		</tr>
-    	</table>
+        <label>search:<input id="tableText" type="text" /></label>
+        <table id="searchTable">
+            <tr data-ignore-list-search="ignore">
+                <th>name</th><th>value</th>
+            </tr>
+            <tr>
+                <td>Sato</td><td>Taro</td>
+            </tr>
+            <tr>
+                <td>Sato</td><td>Hanako</td>
+            </tr>
+            <tr>
+                <td>Suzuki</td><td>Jiro</td>
+            </tr>
+            <tr>
+                <td>田中</td><td>半兵衛</td>
+            </tr>
+        </table>
     </div>
 
 
